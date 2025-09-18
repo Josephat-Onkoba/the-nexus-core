@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Nexus Core — AI & Emerging Tech Briefs</title>
+  <meta name="description" content="The Nexus Core — Your weekly brief on the essential core of AI and Emerging Technologies." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Nexus Core — AI & Emerging Tech Briefs" />
+  <meta property="og:description" content="Your weekly brief on the essential core of AI and Emerging Technologies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://thenexuscore.example/" />
+  <!-- NOTE: Replace with your deployed absolute image URL -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Nexus Core — AI & Emerging Tech Briefs" />
+  <meta name="twitter:description" content="Your weekly brief on the essential core of AI and Emerging Technologies." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1200&q=80" />
+  <!-- Favicon (inline SVG, update if you add a real file) -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%2336e1ff"/><stop offset="1" stop-color="%238b5cf6"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="%230b0f18"/><path d="M12 44 L28 20 L28 32 L52 20 L36 44 L36 32 Z" fill="url(%23g)"/></svg>' />
+  <!-- Open Graph / Twitter for rich sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Nexus Core" />
+  <meta property="og:title" content="The Nexus Core — AI & Emerging Tech Briefs" />
+  <meta property="og:description" content="Your weekly brief on the essential core of AI and Emerging Technologies." />
+  <!-- Tip: Replace with your deployed absolute URL when hosted -->
+  <meta property="og:url" content="https://thenexuscore.example.com/" />
+  <!-- Using a thematic public image for now; replace with your hosted brand image URL when deployed. -->
+  <meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Nexus Core — AI & Emerging Tech Briefs" />
+  <meta name="twitter:description" content="Your weekly brief on the essential core of AI and Emerging Technologies." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80" />
+
+  <!-- Favicon (inline SVG data URL) -->
+  <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#36e1ff"/>
+          <stop offset="100%" stop-color="#8b5cf6"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="12" fill="#0b0f18"/>
+      <circle cx="32" cy="32" r="22" fill="url(%23g)" opacity="0.2"/>
+      <path d="M18 44V20h4l20 19.5V20h4v24h-4L22 24.5V44z" fill="url(%23g)"/>
+    </svg>' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-0: #07080c;
+      --bg-1: #0b0f18;
+      --bg-2: #0f1524;
+      --text: #e9ecf1;
+      --muted: #b6bfd3;
+      --accent: #36e1ff;  /* neon blue */
+      --accent-2: #8b5cf6; /* glow purple */
+      --accent-3: #14b8a6; /* teal tint */
+      --card: #0e1321;
+      --border: #1e2235;
+      --shadow: 0 10px 30px rgba(16, 24, 40, 0.6), 0 2px 8px rgba(0,0,0,0.45);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --radius-lg: 22px;
+      --container: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(54, 225, 255, 0.08), transparent 55%),
+                  radial-gradient(1000px 500px at 120% 10%, rgba(139, 92, 246, 0.10), transparent 60%),
+                  linear-gradient(180deg, var(--bg-1), var(--bg-0) 30% 60%, var(--bg-2));
+      background-attachment: fixed;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 1.2rem; }
+
+    /* Header / Navbar */
+    header.navbar {
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(180deg, rgba(10,14,22,0.9), rgba(10,14,22,0.6));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+    }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 0; gap: 0.6rem; }
+    .brand { display: flex; align-items: center; gap: 0.8rem; }
+    .brand img { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(54,225,255,0.3)) drop-shadow(0 0 10px rgba(139,92,246,0.22)); border-radius: 10px; }
+    .brand .title {
+      font-family: "Space Grotesk", Inter, sans-serif; font-weight: 800; letter-spacing: 0.2px;
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      text-shadow: 0 0 18px rgba(54,225,255,0.25), 0 0 18px rgba(139,92,246,0.22);
+      line-height: 1;
+    }
+    .brand .title .nexus, .brand .title .core { color: inherit; }
+    @media (max-width: 520px) {
+      .brand img { width: 38px; height: 38px; border-radius: 8px; }
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.4rem; }
+    button.menu-toggle { display: none; background: rgba(12,18,32,0.6); color: var(--text); border: 1px solid rgba(99,102,241,0.35); border-radius: 10px; padding: 0.5rem 0.6rem; cursor: pointer; }
+    button.menu-toggle:hover { background: rgba(99,102,241,0.18); }
+    nav.primary { display: flex; align-items: center; gap: 0.2rem; }
+    nav.primary a { color: var(--muted); font-weight: 500; padding: 0.6rem 0.9rem; border-radius: 10px; transition: 180ms ease; display: inline-block; }
+    nav.primary a:hover { color: var(--text); background: rgba(99, 102, 241, 0.12); box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.25) inset; }
+
+    @media (max-width: 860px) {
+      nav.primary { position: absolute; top: 60px; right: 12px; left: 12px; flex-direction: column; background: rgba(10,14,22,0.96); border: 1px solid rgba(99,102,241,0.25); border-radius: 12px; padding: 0.4rem; box-shadow: var(--shadow); display: none; }
+      nav.primary.open { display: flex; }
+      button.menu-toggle { display: inline-flex; }
+    }
+
+    /* Hero */
+    .hero { padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(2rem, 3vw, 3rem); }
+    .hero .content { display: grid; grid-template-columns: 1.1fr; gap: 1.2rem; align-items: center; }
+    .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; opacity: 0.9; }
+    .hero h1 {
+      margin: 0.2rem 0 0.5rem; font-size: clamp(1.8rem, 3.3vw, 2.8rem); line-height: 1.15;
+      font-family: "Space Grotesk", Inter, sans-serif;
+      background: radial-gradient(120% 100% at 0% 50%, #dbeafe 0%, #c7d2fe 35%, #e9d5ff 55%, #f5f3ff 70%, #ffffff 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      text-shadow: 0 0 24px rgba(54, 225, 255, 0.18), 0 0 36px rgba(139, 92, 246, 0.18);
+    }
+    .hero p.sub {
+      color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.1rem);
+      max-width: 60ch;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.6rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.85rem 1.1rem;
+      border-radius: 12px; font-weight: 600; letter-spacing: 0.2px; position: relative; overflow: hidden;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+      border: 1px solid rgba(99,102,241,0.25);
+      box-shadow: 0 10px 20px rgba(20, 21, 40, 0.45), 0 0 0 4px rgba(54, 225, 255, 0) inset;
+    }
+    .btn.primary {
+      background: linear-gradient(90deg, rgba(54,225,255,0.18), rgba(139,92,246,0.18));
+      color: var(--text);
+    }
+    .btn.primary:hover { transform: translateY(-1px); box-shadow: 0 14px 28px rgba(20, 21, 40, 0.6), 0 0 0 4px rgba(54, 225, 255, 0.22) inset; }
+
+    /* Section: Latest Briefs */
+    section#latest { padding: 2rem 0 1rem; }
+    section#latest h2 { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(1.3rem, 2.6vw, 2rem); margin: 0 0 1rem; }
+    .grid {
+      display: grid; gap: 1rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    @media (min-width: 680px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 980px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+    .card {
+      background: linear-gradient(180deg, rgba(19, 23, 40, 0.9), rgba(12, 16, 28, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      position: relative; overflow: hidden; isolation: isolate;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      cursor: pointer;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: -40% -40% auto auto; width: 70%; height: 70%;
+      background: radial-gradient(closest-side, rgba(54,225,255,0.10), transparent 65%);
+      transform: translate(35%, -35%);
+      z-index: -1;
+    }
+    .card:hover { transform: translateY(-2px); border-color: rgba(54,225,255,0.35); box-shadow: 0 12px 32px rgba(18, 22, 40, 0.7), 0 0 0 1px rgba(54,225,255,0.12) inset; }
+    .card h3 { margin: 0 0 0.4rem; font-size: 1.05rem; letter-spacing: 0.2px; }
+    .card .meta { color: var(--muted); font-size: 0.9rem; }
+    .card p.snippet { color: #cbd5e1; font-size: 0.98rem; margin-top: 0.5rem; }
+
+    .badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.55rem; font-size: 0.78rem; color: #dbeafe; border-radius: 999px; background: linear-gradient(90deg, rgba(54,225,255,0.15), rgba(139,92,246,0.15)); border: 1px solid rgba(99,102,241,0.28); }
+
+  /* Media */
+  section#media { padding: 2rem 0 1rem; }
+  #media h2 { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(1.3rem, 2.6vw, 2rem); margin: 0 0 1rem; }
+  .media-grid { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  @media (min-width: 700px) { .media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .media-card { background: linear-gradient(180deg, rgba(16,22,38,0.9), rgba(10,14,26,0.9)); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+  .media-card .thumb { width: 100%; height: 200px; object-fit: cover; filter: saturate(1.15) contrast(1.05); }
+  .media-card figcaption { padding: 0.7rem 0.9rem; color: var(--muted); font-size: 0.95rem; border-top: 1px solid rgba(99,102,241,0.18); }
+
+  .featured-video { margin-top: 1.2rem; }
+  .video-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(99,102,241,0.3); box-shadow: var(--shadow); background: #0b1020; }
+  .video-wrap video, .video-wrap iframe { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .video-caption { color: var(--muted); margin-top: 0.6rem; }
+
+    /* About */
+    section#about { padding: 2rem 0 1rem; }
+    #about .about-card {
+      background: linear-gradient(180deg, rgba(16, 22, 38, 0.9), rgba(10, 15, 28, 0.9));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+    #about h2 { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(1.2rem, 2.4vw, 1.8rem); margin: 0 0 0.5rem; }
+    #about p { color: var(--muted); font-size: 1.02rem; }
+
+    /* CTA */
+    section#cta { padding: 2rem 0 2.5rem; }
+    .cta-panel {
+      position: relative; overflow: hidden; isolation: isolate;
+      background: linear-gradient(135deg, rgba(54,225,255,0.10), rgba(139,92,246,0.10));
+      border: 1px solid rgba(99,102,241,0.28);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+    .cta-panel::after {
+      content: ""; position: absolute; inset: auto -10% -35% -10%; height: 70%;
+      background: radial-gradient(closest-side, rgba(139,92,246,0.25), transparent 70%);
+      z-index: -1;
+    }
+    .cta-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; }
+    @media (min-width: 860px) { .cta-grid { grid-template-columns: 1.5fr auto; } }
+    .cta-grid h2 { margin: 0; font-family: "Space Grotesk", Inter, sans-serif; }
+    .cta-grid p { margin: 0.3rem 0 0; color: var(--muted); }
+
+    /* Contact */
+    section#contact { padding: 2rem 0 2rem; }
+    .contact-panel { background: linear-gradient(135deg, rgba(54,225,255,0.10), rgba(139,92,246,0.10)); border: 1px solid rgba(99,102,241,0.28); border-radius: var(--radius-lg); padding: 1.2rem; box-shadow: var(--shadow); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+    @media (min-width: 900px) { .contact-grid { grid-template-columns: 1.1fr 1fr; } }
+    .contact-points { list-style: none; padding-left: 0; margin: 0.8rem 0 0; color: var(--muted); display: grid; gap: 0.5rem; }
+    .contact-form { display: grid; gap: 0.8rem; }
+    .contact-form .field { display: grid; gap: 0.35rem; }
+    .contact-form label { font-weight: 600; color: #e2e8f0; }
+    .req { color: #93c5fd; font-weight: 600; }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      background: rgba(13,18,32,0.7);
+      border: 1px solid rgba(99,102,241,0.28);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.75rem 0.8rem;
+      outline: none; transition: 160ms ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { box-shadow: 0 0 0 3px rgba(54,225,255,0.22); border-color: rgba(54,225,255,0.5); }
+    .contact-form .checkbox { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--muted); }
+    .form-status { margin-left: 0.6rem; color: #c7d2fe; }
+    .fine-print { color: #94a3b8; font-size: 0.9rem; margin: 0.4rem 0 0; }
+
+    /* Footer */
+    footer.site {
+      padding: 1.6rem 0 2rem; color: #cbd5e1; border-top: 1px solid rgba(99,102,241,0.15);
+      background: linear-gradient(180deg, rgba(7,8,12,0.65), rgba(7,8,12,0.95));
+    }
+    .foot-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: center; }
+    @media (min-width: 780px) { .foot-grid { grid-template-columns: 1fr auto; } }
+    .social { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .social a { color: #cbd5e1; font-weight: 500; font-size: 0.95rem; padding: 0.5rem 0.7rem; border-radius: 10px; border: 1px solid rgba(99,102,241,0.25); background: rgba(12, 18, 32, 0.5); transition: 160ms ease; }
+    .social a:hover { color: var(--text); background: rgba(99,102,241,0.12); box-shadow: 0 0 0 1px rgba(54,225,255,0.22) inset; }
+
+    /* Modal */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(5,8,14,0.65); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 1rem; z-index: 100; }
+    .modal-backdrop.active { display: flex; }
+    .modal {
+      width: min(760px, 96vw); max-height: 85vh; overflow: auto;
+      background: linear-gradient(180deg, rgba(15, 19, 34, 0.98), rgba(10, 14, 26, 0.98));
+      border: 1px solid rgba(99,102,241,0.35);
+      border-radius: 16px; padding: 1rem; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .modal header { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; margin-bottom: 0.4rem; }
+    .modal h3 { margin: 0; font-size: 1.2rem; }
+    .modal .meta { color: var(--muted); font-size: 0.95rem; margin: 0.2rem 0 0.8rem; }
+    .modal .content { color: #e5e7eb; font-size: 1rem; }
+    .modal .actions { margin-top: 1rem; }
+    .icon-btn { background: transparent; color: #cbd5e1; border: 1px solid rgba(99,102,241,0.35); border-radius: 10px; padding: 0.45rem 0.6rem; cursor: pointer; transition: 160ms ease; }
+    .icon-btn:hover { background: rgba(99,102,241,0.18); color: var(--text); }
+
+    /* Utilities */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .spacer { height: 8px; }
+
+    /* Toast */
+    .toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px);
+      background: rgba(16, 22, 38, 0.95);
+      color: var(--text);
+      border: 1px solid rgba(99,102,241,0.35);
+      border-radius: 12px; padding: 0.7rem 0.9rem; box-shadow: var(--shadow);
+      opacity: 0; pointer-events: none; transition: 220ms ease;
+      z-index: 200;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+  <header class="navbar" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="The Nexus Core home">
+        <img src="./THE NEXUS CORE (2).png" alt="The Nexus Core logo" />
+        <div class="title"><span class="nexus">The Nexus</span> <span class="core">Core</span></div>
+      </a>
+      <div class="nav-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false">☰</button>
+        <nav class="primary" id="primary-nav" aria-label="Primary">
+          <a href="#latest">Latest</a>
+          <a href="#media">Media</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#cta">Subscribe</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container content">
+        <div>
+          <div class="eyebrow">Weekly Brief</div>
+          <h1>Your weekly brief on the essential core of AI and Emerging Technologies.</h1>
+          <p class="sub">At The Nexus Core, we're the central connection point of the future. Join us for a deep dive into the most exciting developments in AI and emerging tech that are shaping tomorrow, today.</p>
+          <div class="actions">
+            <a class="btn primary" id="hero-subscribe" href="https://www.linkedin.com/company/the-nexus-core" target="_blank" rel="noopener noreferrer">
+              <span>Follow & Subscribe</span>
+              <span aria-hidden>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Briefs -->
+    <section id="latest" aria-labelledby="latest-heading">
+      <div class="container">
+        <h2 id="latest-heading">Latest Briefs</h2>
+        <div class="grid" role="list">
+          <!-- Card 1 -->
+          <article class="card" role="listitem" tabindex="0"
+                   data-article-id="a1"
+                   data-title="Africa's Leap: How Investing in Homegrown AI Infrastructure is Changing the Game"
+                   data-date="2025-09-01"
+                   data-link="https://www.linkedin.com/pulse/africas-leap-how-investing-homegrown-ai-changing-game-josephat-onkoba-fjljf">
+            <span class="badge" aria-hidden>AI Infrastructure</span>
+            <h3>Africa's Leap: How Investing in Homegrown AI Infrastructure is Changing the Game</h3>
+            <div class="meta">Date: 2025-09-01</div>
+            <p class="snippet">Africa is moving from dependency to self-reliance in AI infrastructure...</p>
+            <!-- Hidden full intro template: Replace placeholder with the full intro text. -->
+            <template id="a1-content">
+              <p>
+                As the global AI race heats up, fueled by massive investments in compute power from nations like the U.S., a common concern is Africa's risk of being left behind. However, a new narrative is taking shape across the continent. Rather than simply relying on foreign technology, key players in Africa are strategically investing in their own AI infrastructure and technology, a move that promises to both close the digital divide and foster a new era of locally-led innovation. A case study emerging from South Africa and Kenya illustrates this strategic pivot from dependency to self-reliance, with profound implications for the continent's future.
+              </p>
+            </template>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" role="listitem" tabindex="0"
+                   data-article-id="a2"
+                   data-title="The U.S. is going all-in on AI infrastructure. Here's why you should pay attention and What it means for Africa."
+                   data-date="2025-08-20"
+                   data-link="https://www.linkedin.com/pulse/us-going-all-in-ai-infrastructure-heres-why-you-should-onkoba-oqblf">
+            <span class="badge" aria-hidden>Policy & Investment</span>
+            <h3>The U.S. is going all-in on AI infrastructure. Here's why you should pay attention and What it means for Africa.</h3>
+            <div class="meta">Date: 2025-08-20</div>
+            <p class="snippet">Massive U.S. investment in AI infrastructure marks a new era...</p>
+            <template id="a2-content">
+              <p>
+                The U.S. is strategically mobilizing significant resources from federal funding to public-private partnerships to boost its AI infrastructure and compute power. This is not just a technological shift, but a foundational play for economic and geopolitical leadership. The scale and speed of this mobilization signal a new era of AI development.
+              </p>
+            </template>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" role="listitem" tabindex="0"
+                   data-article-id="a3"
+                   data-title="The State of AI Infrastructure"
+                   data-date="2025-08-10"
+                   data-link="https://www.linkedin.com/pulse/state-ai-infrastructure-josephat-onkoba-p27jf">
+            <span class="badge" aria-hidden>Trends</span>
+            <h3>The State of AI Infrastructure</h3>
+            <div class="meta">Date: 2025-08-10</div>
+            <p class="snippet">AI's invisible backbone — data centers, compute, and processors...</p>
+            <template id="a3-content">
+              <p>
+                The AI revolution isn't just about code and algorithms; it's powered by an invisible, humming infrastructure of processors, data centers, and an ever-expanding need for compute power. In the race for AI dominance, the fight for this physical backbone is where the real game is being played. Welcome to the first edition of The Nexus Core, where we connect you to the critical developments shaping the future of AI.
+              </p>
+            </template>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media: Images & Video -->
+    <section id="media" aria-labelledby="media-heading">
+      <div class="container">
+        <h2 id="media-heading">Media Highlights</h2>
+        <p class="sub" style="color: var(--muted); margin-top: -0.2rem;">AI infrastructure in motion — curated visuals from the latest in AI/ML.</p>
+        <div class="media-grid">
+          <figure class="media-card">
+            <img class="thumb" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80" alt="Close-up of AI accelerator chip on circuit board" />
+            <figcaption>AI accelerators — powering frontier models.</figcaption>
+          </figure>
+          <figure class="media-card">
+            <img class="thumb" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1600&q=80" alt="Aisle in a hyperscale data center with server racks" />
+            <figcaption>Hyperscale data centers — the backbone of AI.</figcaption>
+          </figure>
+          <figure class="media-card">
+            <img class="thumb" loading="lazy" decoding="async" src="./pexels-kindelmedia-8566636.jpg" alt="Robotic AI system with articulated arm and sensors" />
+            <figcaption>Latest AI news & trends — signals from across the industry.</figcaption>
+          </figure>
+        </div>
+
+        <div class="featured-video">
+          <div class="video-wrap">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/B36gIyIqyTE?si=D6fUgnME3I2QX0XZ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="video-caption">Featured: The Future of AI Infrastructure</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-card">
+          <h2 id="about-heading">At the core of connection</h2>
+          <p>
+            The Nexus Core curates the breakthroughs across AI and adjacent technologies. We translate research, product shifts, and infrastructure trends into brief, actionable insights so decision-makers, builders, and curious readers can stay ahead.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-grid">
+            <div>
+              <h2 id="cta-heading">Be part of The Core</h2>
+              <p>Follow us on LinkedIn for the newsletter and stay tuned as we expand to Facebook, Instagram, TikTok, Substack, and Medium.</p>
+            </div>
+            <div class="actions">
+              <a class="btn primary" id="cta-subscribe" href="https://www.linkedin.com/company/the-nexus-core" target="_blank" rel="noopener noreferrer">
+                <span>Follow on LinkedIn</span>
+                <span aria-hidden>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-grid">
+            <div>
+              <h2 id="contact-heading">Contact us</h2>
+              <p class="sub" style="color: var(--muted);">Have a tip, partnership inquiry, or want to say hello? Send us a note — we read every message.</p>
+              <ul class="contact-points">
+                <li><span class="badge" aria-hidden>Media</span> Story leads, interviews, announcements</li>
+                <li><span class="badge" aria-hidden>Partnerships</span> Collaborations, sponsorships, brief ideas</li>
+              </ul>
+            </div>
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">(required)</span></label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="How can we help?"></textarea>
+              </div>
+              <div class="field inline">
+                <label class="checkbox">
+                  <input type="checkbox" id="consent" name="consent" />
+                  <span>I agree to be contacted at the email provided.</span>
+                </label>
+              </div>
+              <div class="actions">
+                <button type="submit" class="btn primary"><span>Send</span><span aria-hidden>→</span></button>
+                <span id="form-status" role="status" aria-live="polite" class="form-status"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site" role="contentinfo">
+    <div class="container foot-grid">
+      <div>© <span id="year"></span> The Nexus Core.</div>
+      <nav class="social" aria-label="Social links">
+  <a href="https://www.linkedin.com/company/the-nexus-core" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://substack.com/" target="_blank" rel="noopener noreferrer">Substack</a>
+        <a href="https://medium.com/" target="_blank" rel="noopener noreferrer">Medium</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Modal (re-usable) -->
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header>
+        <h3 id="modal-title">Title</h3>
+        <button class="icon-btn" id="modal-close" aria-label="Close">✕</button>
+      </header>
+      <div class="meta" id="modal-date"></div>
+      <div class="content" id="modal-content"></div>
+      <div class="actions">
+        <a class="btn primary" id="modal-read" href="#" target="_blank" rel="noopener noreferrer">
+          <span>Read on LinkedIn</span>
+          <span aria-hidden>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal behavior
+    const backdrop = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('modal-close');
+    const titleEl = document.getElementById('modal-title');
+    const dateEl = document.getElementById('modal-date');
+    const contentEl = document.getElementById('modal-content');
+    const readBtn = document.getElementById('modal-read');
+    let lastFocused = null;
+
+    function openModal({ title, date, contentHTML, link }) {
+      lastFocused = document.activeElement;
+      titleEl.textContent = title;
+      dateEl.textContent = `Date: ${date}`;
+      contentEl.innerHTML = contentHTML;
+      readBtn.href = link || '#';
+      backdrop.classList.add('active');
+      backdrop.setAttribute('aria-hidden', 'false');
+      closeBtn.focus();
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('active');
+      backdrop.setAttribute('aria-hidden', 'true');
+      contentEl.innerHTML = '';
+      document.removeEventListener('keydown', onEsc);
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }
+
+    function onEsc(e) { if (e.key === 'Escape') closeModal(); }
+
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+    closeBtn.addEventListener('click', closeModal);
+
+    // Attach open handlers for cards
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => launch(card));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); launch(card); }
+      });
+    });
+
+    function launch(card) {
+      const id = card.getAttribute('data-article-id');
+      const title = card.getAttribute('data-title');
+      const date = card.getAttribute('data-date');
+      const link = card.getAttribute('data-link');
+      const tpl = card.querySelector(`#${id}-content`);
+      const html = tpl ? tpl.innerHTML : '<p>[Missing intro] Please add the full intro inside the template for this card.</p>';
+      openModal({ title, date, contentHTML: html, link });
+    }
+
+    // Replace these with your actual LinkedIn Newsletter URL when ready
+  const newsletterURL = 'https://www.linkedin.com/company/the-nexus-core';
+    document.getElementById('hero-subscribe').href = newsletterURL;
+    document.getElementById('cta-subscribe').href = newsletterURL;
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+    if (menuBtn && primaryNav) {
+      function setMenu(open) {
+        primaryNav.classList.toggle('open', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      menuBtn.addEventListener('click', () => {
+        const isOpen = primaryNav.classList.contains('open');
+        setMenu(!isOpen);
+      });
+      // Close menu when a nav link is clicked (mobile UX)
+      primaryNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+      // Close on Escape
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+    }
+
+    // Contact form handler (mailto)
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        statusEl.textContent = '';
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const consent = document.getElementById('consent').checked;
+
+        // Basic validation
+        if (!email) {
+          statusEl.textContent = 'Please enter your email.';
+          return;
+        }
+        const emailOk = /.+@.+\..+/.test(email);
+        if (!emailOk) {
+          statusEl.textContent = 'Please enter a valid email address.';
+          return;
+        }
+
+        const to = 'thenexuscoreorg@gmail.com';
+        const subject = encodeURIComponent('New message from The Nexus Core website');
+        const lines = [
+          name ? `Name: ${name}` : null,
+          `Email: ${email}`,
+          `Consent to contact: ${consent ? 'Yes' : 'No'}`,
+          '',
+          'Message:',
+          message || '(no message)'
+        ].filter(Boolean);
+        const body = encodeURIComponent(lines.join('\n'));
+
+        const raw = lines.join('\n');
+        // Clipboard-first fallback: copy details so user can paste if no mail app is configured
+        copyToClipboard(raw)
+          .then(() => showToast('Message copied. Opening your email app...'))
+          .catch(() => showToast('Opening your email app...'))
+          .finally(() => {
+            const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+            statusEl.textContent = 'Opening your email app...';
+            window.location.href = mailto;
+          });
+      });
+    }
+
+    function showToast(message) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = message;
+      el.classList.add('show');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      // Fallback for older browsers
+      return new Promise((resolve, reject) => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          const ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          ok ? resolve() : reject();
+        } catch (err) {
+          document.body.removeChild(ta);
+          reject(err);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
