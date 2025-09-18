@@ -292,14 +292,17 @@
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   </style>
-  <!-- Vercel Web Analytics (Other frameworks) -->
-  <script>
-    (function(){
-      var s=document.createElement('script');
-      s.defer=true; s.src='/_vercel/insights/script.js';
-      document.head.appendChild(s);
-      window.va = window.va || function(){(window.vaq = window.vaq || []).push(arguments)};
-    })();
+  <!-- Vercel Analytics via inject() for non-frameworks (no bundler) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@vercel/analytics": "https://esm.sh/@vercel/analytics@1"
+      }
+    }
+  </script>
+  <script type="module">
+    import { inject } from "@vercel/analytics";
+    inject();
   </script>
 </head>
 <body>
