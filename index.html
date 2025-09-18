@@ -292,6 +292,15 @@
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   </style>
+  <!-- Vercel Web Analytics (Other frameworks) -->
+  <script>
+    (function(){
+      var s=document.createElement('script');
+      s.defer=true; s.src='/_vercel/insights/script.js';
+      document.head.appendChild(s);
+      window.va = window.va || function(){(window.vaq = window.vaq || []).push(arguments)};
+    })();
+  </script>
 </head>
 <body>
   <header class="navbar" role="banner">
@@ -654,6 +663,7 @@
           .then(() => showToast('Message copied. Opening your email app...'))
           .catch(() => showToast('Opening your email app...'))
           .finally(() => {
+            try { if (window.va) window.va('event', 'contact_submit'); } catch(e) {}
             const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
             statusEl.textContent = 'Opening your email app...';
             window.location.href = mailto;
